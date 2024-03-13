@@ -7,8 +7,6 @@ OllamaChat-Tavily is a chatbot application built with Python, using the Ollama a
 > [!Caution]
 > These models tend to hallucinate :D
 > Any improvements or fixes are welcome
-> [!TIP]
-> Tavily at times can be quite slow as well using the `TavilySearchResults` API. Can use the `TavilyAnswer` API as well for slightly faster results in my experience. Can change the max search results field in `TavilyAnswer()` as well to do more searches or less searches.
 
 ## Installation
 
@@ -25,6 +23,9 @@ pip install -r requirements.txt
 ## Usage
 
 Add your Tavily API key in a `.env` file as shown in `.env.sample`
+
+> [!TIP]
+> Tavily at times can be quite slow as well using the `TavilySearchResults` API. Can use the `TavilyAnswer` API as well for slightly faster results in my experience. Can change the max search results field in `TavilyAnswer()` as well to do more searches or less searches.
 
 To run the application, use the following command:
 
