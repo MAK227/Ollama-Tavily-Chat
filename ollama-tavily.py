@@ -10,26 +10,24 @@ import os
 from os import listdir, system
 from dotenv import load_dotenv
 
+load_dotenv()
 
 api_key_placeholder = st.empty()
 
-
-if not '.env' in listdir('.'):
+if "TAVILY_API_KEY" not in os.environ:
     api_key = api_key_placeholder.text_input("Please input your Tavily API key: ",
                             help="Enter your Tavily API Key from https://app.tavily.com/",
                             placeholder="tvly-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
                             key="t_api_key")
     if api_key:
         if api_key.startswith("tvly-"):
-            system(f'echo "TAVILY_API_KEY={str(api_key)}" > .env')
-            os.environ["TAVILY_API_KEY"] = os.getenv("TAVILY_API_KEY")
+            system(f'echo "TAVILY_API_KEY={str(api_key)}" >> .env')
             api_key_placeholder.empty()
+            load_dotenv()
         else:
             st.error("Invalid API Key. Please enter a valid Tavily API Key.")
 else:
     load_dotenv()
-    os.environ["TAVILY_API_KEY"] = os.getenv("TAVILY_API_KEY")
-
 
 # Response generator function
 def response_generator():
