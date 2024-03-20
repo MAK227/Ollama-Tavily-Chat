@@ -26,8 +26,6 @@ if "TAVILY_API_KEY" not in os.environ:
             load_dotenv()
         else:
             st.error("Invalid API Key. Please enter a valid Tavily API Key.")
-else:
-    load_dotenv()
 
 # Response generator function
 def response_generator():
